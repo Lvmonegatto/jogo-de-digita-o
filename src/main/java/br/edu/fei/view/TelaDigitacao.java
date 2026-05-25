@@ -4,6 +4,7 @@
  */
 package br.edu.fei.view;
 
+import br.edu.fei.controller.jogocontroller;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -18,6 +19,7 @@ import javax.swing.JTextArea;
 public class TelaDigitacao extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaDigitacao.class.getName());
+    private jogocontroller controller;
 
     /**
      * Creates new form TelaDigitacao
@@ -104,7 +106,7 @@ public class TelaDigitacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmaBtnActionPerformed
-
+        this.controller.verificar();
     }//GEN-LAST:event_confirmaBtnActionPerformed
 
     public static Logger getLogger() {
@@ -173,5 +175,7 @@ public class TelaDigitacao extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea textoDigitadoArea;
     // End of variables declaration//GEN-END:variables
-
+public void setController(jogocontroller controller){
+    this.controller = controller;
+}
 }

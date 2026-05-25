@@ -8,9 +8,6 @@ import br.edu.fei.model.Frase;
 import br.edu.fei.model.CarregarFrase;
 import br.edu.fei.model.Score;
 import br.edu.fei.view.TelaDigitacao;
-
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -27,22 +24,15 @@ public class jogocontroller {
     public jogocontroller() {
 
         tela = new TelaDigitacao();
+
+        tela.setController(this);
+
         CarregarFrase dao = new CarregarFrase();
+
         frases = dao.carregarFrases();
+
         mostrarFrase();
-        tela.getConfirmaBtn().addActionListener(e -> {
-            verificar();
-        });
-        tela.getTextoDigitadoArea().addKeyListener(new KeyAdapter() {
-                @Override
-                public void keyPressed(KeyEvent e) {
-                    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                        e.consume();
-                        verificar();
-                    }
-                }
-            }
-        );
+
         tela.setVisible(true);
     }
 
